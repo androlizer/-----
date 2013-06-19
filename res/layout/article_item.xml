@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    >
+
+    <ImageView
+        android:id="@+id/down_image"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_launcher_yuedu" 
+        android:scaleType="fitXY"
+        />
+  <org.chinamil.ui.library.AlwaysMarqueeTextView 
+             android:id="@+id/donw_bigtitle"
+                       android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/down_image"
+                            android:textSize="15.0sp" 
+                            android:typeface="sans"
+                             android:textStyle="bold" 
+                             android:textColor="@android:color/white" 
+                             android:ellipsize="marquee" 
+                              android:layout_width="fill_parent"
+                               android:layout_height="wrap_content" 
+                               android:text="WxxxxLK" 
+                               android:singleLine="true" 
+                               />
+   <TextView
+       android:id="@+id/donw_title"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/donw_bigtitle"
+       android:layout_toRightOf="@+id/down_image"
+       android:maxLines="1"
+       android:text="来源:解放军报"
+       android:singleLine="true"
+android:ellipsize="end"
+android:width="120dp"
+
+android:textColor="@android:color/white" 
+   />
+  <View android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:background="@drawable/list_line"/>
+</RelativeLayout>

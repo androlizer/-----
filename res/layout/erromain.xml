@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<org.chinamil.networkerr.MyLinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:id="@+id/addliner"
+>
+	    
+	    <ImageView 
+	        android:layout_width="match_parent"
+	        android:layout_height="60dp"
+	        android:background="@drawable/errbiaoti"
+	        />
+	    
+	     <FrameLayout 
+      android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+         >
+         <TextView android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:id="@+id/errempty"
+	android:text="暂无下载内容"
+android:gravity="center"
+android:layout_centerInParent="true"
+android:visibility="gone"
+	/>
+   <org.chinamil.networkerr.Myviewpager
+            android:id="@+id/vp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" 
+            android:background="#00000000"/>
+            <LinearLayout
+                android:id="@+id/dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                  android:layout_gravity="center|bottom"
+                android:background="#00000000"
+                android:orientation="horizontal"
+                >
+               <!--  <View
+                    android:id="@+id/v_dot1"
+                    android:layout_width="5dip"
+                    android:layout_height="5dip"
+                    android:background="@drawable/dot_normal"
+                     /> -->
+                
+               
+            </LinearLayout>
+ 
+            </FrameLayout>
+        
+</org.chinamil.networkerr.MyLinearLayout>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/library23"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/library"
+        android:orientation="horizontal" >
+      <FrameLayout
+            android:id="@+id/framlayoutone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp" >
+
+            <ImageButton
+                android:id="@+id/one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="#00000000" 
+                android:src="@drawable/ic_launcher_yuedu"
+                android:scaleType="fitXY"
+                />
+
+            <ImageButton
+                android:id="@+id/downButtonone"
+                android:layout_width="60dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical|center"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/downselect"
+               />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center|bottom"
+                android:layout_marginBottom="10dp" >
+      <TextView
+                    android:id="@+id/onedate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="网络错误"
+                    android:textColor="@android:color/white"
+                   
+                     android:background="@drawable/shij"
+                    android:textStyle="bold"
+                    />
+            </FrameLayout>
+
+            <ProgressBar
+                android:id="@+id/downbarone"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+               android:layout_gravity="right|center_vertical|bottom|center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:visibility="gone" />
+        </FrameLayout>   
+     
+          
+          
+          
+          
+        <FrameLayout
+            android:id="@+id/framlayouttwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp" >
+
+            <ImageButton
+                android:id="@+id/two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="#00000000"
+          android:src="@drawable/ic_launcher_yuedu"
+                 android:scaleType="fitXY" />
+            <ImageButton
+                android:id="@+id/downButtontwo"
+             android:layout_width="60dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical|center"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/downselect"
+                android:contentDescription=""
+                 />
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center|bottom"
+                android:layout_marginBottom="10dp" >
+ <TextView
+               android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     android:id="@+id/twodate"
+                           android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="网络错误"
+                     android:background="@drawable/shij"
+                    android:textStyle="bold" 
+                    android:textColor="@android:color/white"
+                
+                
+                    />
+            </FrameLayout>
+
+            <ProgressBar
+                android:id="@+id/downbartwo"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_gravity="right|center_vertical|bottom|center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/framlayoutthree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp" >
+
+            <ImageButton
+                android:id="@+id/three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="#00000000"
+                 android:src="@drawable/ic_launcher_yuedu" 
+                 android:scaleType="fitXY"/>
+
+            <ImageButton
+                android:id="@+id/downButtonthree"
+              android:layout_width="60dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical|center"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/downselect" 
+                 />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center|bottom"
+                android:layout_marginBottom="10dp" >
+      <TextView
+                    android:id="@+id/threedate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                     android:text="网络错误"
+                     android:background="@drawable/shij"
+                    android:textStyle="bold"
+                       android:textColor="@android:color/white"
+                    
+                    />
+            </FrameLayout>
+
+            <ProgressBar
+                android:id="@+id/downbarthree"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_gravity="right|center_vertical|bottom|center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:visibility="gone"
+                 />
+        </FrameLayout>
+ </LinearLayout>
+
+</RelativeLayout>

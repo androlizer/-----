@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical"
+><RelativeLayout
+	    android:id="@+id/mode_bar"
+	    android:layout_width="match_parent"
+	    android:layout_height="40dip"
+	    android:background="@android:color/black"
+	    android:orientation="horizontal" >
+
+	    <Button
+	        android:id="@+id/btn_back"
+	        android:layout_width="36dp"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="7dp"
+	        android:background="@drawable/icon" 
+	      />
+	    <TextView
+	        android:id="@+id/back_text"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="5dp"
+	        android:layout_toRightOf="@+id/btn_back"
+	        android:text="解放军报"
+	        android:textSize="17sp" />
+
+	    <ImageButton
+	        android:id="@+id/min_button"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginRight="17dp"
+	        android:background="@drawable/contentsizemin_background" />
+
+	    <ImageButton
+	        android:id="@+id/big_button2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignTop="@+id/min_button"
+	        android:layout_toLeftOf="@+id/min_button"
+	        android:background="@drawable/contentsize_background" 
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
+	        />
+
+	    <ImageButton
+	        android:id="@+id/shears"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_marginRight="16dp"
+	        android:layout_toLeftOf="@+id/big_button2"
+	        android:background="@drawable/shears_background" />
+
+	</RelativeLayout>
+
+	
+	
+	
+	<FrameLayout 
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+	
+
+ <ScrollView 
+     android:id="@+id/ScrollView"
+       android:layout_width="match_parent"
+    android:layout_height="match_parent"
+      android:background="@android:color/white" 
+      
+    >
+   
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white" >
+     <Gallery android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/urlitem_image"
+        android:visibility="gone"
+        />
+    <TextView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bigtitle"
+              android:gravity="center_horizontal"
+              android:textSize="25dp"
+              android:textStyle="bold"
+            android:visibility="gone"
+              android:text="解放军报"
+        />
+<TextView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:gravity="center_horizontal"
+                android:textStyle="bold"
+                     android:textSize="20dp"
+                       android:textColor="@android:color/black"
+                     android:text="xxx"
+        />
+
+
+
+<TextView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/content"
+          android:textStyle="bold"
+             android:textSize="15dp"
+              android:textColor="@android:color/black"
+              android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+               android:text="测试股"
+        />
+</LinearLayout>
+  </ScrollView>
+  
+     
+     <FrameLayout android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:id="@+id/xxxxx"
+    android:layout_gravity="right|center">
+   <ImageView 
+       android:layout_gravity="right|center" 
+            android:id="@+id/wxnm"
+            android:background="@drawable/btn_playlist_unfold" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:src="@drawable/ico_playlist_unfold" 
+       android:visibility="gone"
+          />   
+           </FrameLayout> 
+            
+    <LinearLayout 
+        android:orientation="horizontal" 
+        android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+    android:id="@+id/xxx" 
+    android:visibility="gone"
+   >
+   
+    <View android:id="@+id/wieghtView" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+         android:layout_weight="1.0"  />
+    <LinearLayout android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         >
+        <ImageView android:layout_gravity="right|center" 
+            android:id="@+id/playList222"
+            android:background="@drawable/btn_playlist_unfold" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:src="@drawable/ico_playlist_fold" 
+  android:visibility="gone"
+          />
+    </LinearLayout>
+    <ListView android:layout_gravity="right" 
+      android:id="@+id/pllist"
+        android:background="#A0181818"
+         android:layout_width="200.0dip" 
+         android:layout_height="fill_parent" 
+       android:visibility="gone"
+         />
+    
+</LinearLayout>
+</FrameLayout>
+</LinearLayout>

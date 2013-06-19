@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:installLocation="auto"
+    package="org.chinamil"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="org.chinamil" />
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+          android:compatibleWidthLimitDp="320"
+       />
+
+    <application
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+         >    <uses-library android:name="android.test.runner" />
+            <!--
+                 android:name="qianlong.qlmobile.ui.App"
+             android:name="qianlong.qlmobile.ui.App"
+              android:configChanges="keyboardHidden|orientation" -->
+        <activity
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:name=".ui.library.RecentActivity"
+            android:theme="@style/test" >
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+        <activity android:name=".ui.opds.OPDSActivity" android:label="@string/opds" 
+        android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
+     <activity
+            android:name=".ui.library.Mananger"
+             android:screenOrientation="portrait"
+                    android:theme="@style/test"  />
+      <activity
+            android:name=".ui.library.Details"
+              android:theme="@style/test"
+             />
+         <activity
+            android:name=".ui.library.Details2"
+              android:theme="@style/test"
+             />
+         <activity
+            android:name=".ui.library.Details3"
+              android:theme="@style/test"
+             />
+   <activity
+          
+            android:name=".About"
+      />  
+      <activity
+          
+            android:name=".ui.library.Temp"
+       
+      /> <activity
+            android:name="org.chinamil.networkerr.ErrorBookShelfActivity"
+              android:theme="@style/test"
+               android:screenOrientation="portrait"
+      />  
+      <activity
+    
+            android:name=".ui.library.UrlItem"
+              android:theme="@style/test"
+      />  
+      
+       <activity
+            android:name="org.chinamil.downland.fragments.MainActivity"
+            
+      />
+      
+       <activity
+            android:name=".ui.library.Shears"
+            android:theme="@style/test" 
+      /> 
+       <activity
+            android:name=".ui.library.WebviewActivity"
+      />     
+      <activity android:name="cn.com.karl.reader.BookShelfActivity" 
+               android:theme="@style/test"  />  
+           <activity  android:name=".ui.library.SearchableActivity"> 
+       <intent-filter>
+	            <action android:name="android.intent.action.SEARCH" />
+	        </intent-filter>
+	        <meta-data android:name="android.app.searchable"
+	                   android:resource="@xml/searchable"/>
+       </activity>
+
+    <meta-data android:name="android.app.default_searchable"
+              android:value=".ui.library.SearchableActivity"
+              />   
+  
+        <provider
+            android:authorities="mananger"
+            android:name=".HeibaiProverd" 
+            >
+        </provider>
+         <provider android:name=".ui.library.Mysugessprovider" 
+            android:authorities="org.chinamil.ui.library.Mysugessprovider">
+          </provider>
+         <service android:name="org.chinamil.ui.library.Myservice"
+             ></service>
+    </application>
+
+</manifest>

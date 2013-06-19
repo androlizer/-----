@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+ >
+    
+<!-- <TextView  android:id="@+id/text22"
+           android:layout_width="wrap_content"
+           android:layout_height="25dp"
+           android:textColor="@android:color/white"
+           android:textSize="16sp"
+           android:background="#A0181818"
+                   /> -->
+       <org.chinamil.ui.library.AlwaysMarqueeTextView 
+                     android:id="@+id/text22"
+                            android:textSize="15.0sp" 
+                            android:typeface="sans"
+                             android:textStyle="bold" 
+                             android:textColor="@android:color/white" 
+                             android:ellipsize="marquee" 
+                              android:layout_width="fill_parent"
+                               android:layout_height="wrap_content" 
+                               android:text="WLK" 
+                               android:singleLine="true" 
+                               android:padding="10sp"/>
+  <View android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:background="@drawable/list_line"/>
+
+</LinearLayout>

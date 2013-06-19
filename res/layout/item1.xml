@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+    <FrameLayout 
+         android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    	android:layout_marginTop="8dp"
+    >
+    <TextView
+    android:layout_height="110dp"
+	android:layout_width="90dp"
+	android:background="@drawable/addic_launcher_yuedu"
+	android:id="@+id/imageView1"
+	android:gravity="bottom|center"
+	android:textColor="#000000"
+	android:textSize="11dp"
+	android:textStyle="bold"
+    />
+    <ImageView 
+        android:id="@+id/down"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+     android:background="@drawable/downone"
+     android:layout_gravity="center_vertical|center_horizontal"
+    android:focusable="false"
+        android:clickable="false"
+        android:focusableInTouchMode="false" 
+     
+        />
+    <!-- 
+       <TextView
+    android:layout_height="110dp"
+	android:layout_width="90dp"
+	android:layout_marginTop="8dp"
+	android:background="@drawable/cover_txt"
+	android:id="@+id/imageView1"
+	android:gravity="bottom"
+	android:text="天龙八部"
+	android:padding="15dp"
+	android:textColor="#000000"
+    /> -->
+    <ProgressBar
+         android:layout_gravity="center"
+        android:id="@+id/adddownprogressBar1"
+           style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" 
+        android:visibility="gone"
+        />
+</FrameLayout>
+</LinearLayout>

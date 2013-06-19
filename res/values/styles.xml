@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources  xmlns:android="http://schemas.android.com/apk/res/android">
+   <style name="test" parent="@android:style/Theme">  <!-- //继承默认的主题 -->
+      <item name="android:windowAnimationStyle">@style/testAnimation</item>
+   <item name="android:windowFullscreen">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+       <item name="android:windowNoTitle">true</item>
+          <!--  覆盖默认动画 -->
+   </style> 
+   <style name="testAnimation" parent="@android:style/Animation.Activity">  
+    
+   <item name="android:activityOpenEnterAnimation">@anim/activity_exit</item>
+     <item name="android:activityOpenExitAnimation">@anim/activity_enter</item>
+     <item name="android:activityCloseEnterAnimation">@anim/activity_exit2</item>
+     <item name="android:activityCloseExitAnimation">@anim/activity_enter2</item>
+     </style> 
+     <style name="myWidget.ProgressBar.Small"  parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/refresh_home2</item>
+        <item name="android:minWidth">24dip</item>
+        <item name="android:maxWidth">24dip</item>
+        <item name="android:minHeight">24dip</item>
+        <item name="android:maxHeight">24dip</item>
+    </style>
+           <style name="AppTheme" parent="android:Theme.Light" />
+    </resources> 
+   

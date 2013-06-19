@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, WebviewguiActivity!</string>
+    <string name="app_name">解放军报</string>
+<string name="menu_settings">退出</string>
+<string name="menu_about">关于</string>
+<string name="qikan">期刊</string>
+<string name="search">报刊搜索</string>
+<string name="back">返回</string>
+<string name="name">解放军报</string>
+<string name="content">期刊暂无收藏内容</string>
+<string name="statement">《解放军报》创刊于1956年1月1日，是中央军委机关报，
+    是党在军队的喉舌。除出版《解放军报》以外，报社还出版发行《解放军画报》、
+    《中国民兵》、《中国国防报》、《环球军事》、《军事记者》等子报子刊，
+    1999年10月1日起，《解放军报》网络版进入国际互联网，2004年10月1日正式定名为“中国军网”。
+    《解放军报》每逢周一、三、五为8个版，周二、四为12个版，周六、日为4个版。发行量43万份，
+    在全国有21个印刷点，全部为卫星传版，彩版印刷。</string>
+</resources>

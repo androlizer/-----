@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#00000000"
+    android:orientation="vertical"
+    android:padding="10dip"
+android:alpha="0.5"
+     >
+     <ScrollView android:layout_width="fill_parent"
+         android:layout_height="wrap_content">
+         <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#00000000"
+    android:orientation="vertical"
+    android:padding="10dip"
+     >
+<TextView
+            android:id="@+id/about_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="版权声明"
+            android:textColor="#ffffff"
+            android:textSize="20dip"
+            android:layout_gravity="center_horizontal"/>
+<TextView
+            android:id="@+id/about2_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1、凡本网注明“来源：国防部网” 的所有作品，版权归本网站所属，任何媒体、互联网站和商业机构不得利用本网站发布的内容进行商业性的原版原式地转载，也不得歪曲和篡改本网站所发布的内容。转载本网作品时，应在授权范围内使用，并注明“来源：国防部网”。违反上述声明者，本网将追究其相关法律责任。
+ "
+            android:textSize="20dip"
+            android:layout_gravity="center_horizontal"/>
+<TextView
+            android:id="@+id/about2_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2、凡本网注明 “来源：XXX（非国防部网）” 的作品，均由其他媒体及相关单位提供。任何媒体或互联网站如需转载，必须与相应提供单位直接联系获得合法授权。
+"
+            android:textColor="#ffffff"
+            android:textSize="20dip"
+            android:layout_gravity="center_horizontal"/>
+  <TextView
+          
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="联系我们"
+            android:textColor="#ffffff"
+            android:textSize="20dip"
+            android:layout_gravity="center_horizontal"/>
+   <TextView
+          
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邮箱：mod@chinamil.com.cn "
+            android:textColor="#ffffff"
+            android:textSize="20dip"
+            android:layout_gravity="center_horizontal"/>
+   </LinearLayout>
+</ScrollView>
+</LinearLayout>

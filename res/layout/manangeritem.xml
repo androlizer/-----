@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+     android:orientation="vertical" >
+     <Button
+          android:id="@+id/mandel"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="删除"
+          android:layout_alignParentRight="true"
+          android:onClick="click"
+           />
+     
+      <Button android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/manopen"
+     android:layout_toLeftOf="@id/mandel"
+          android:text="打开"
+               android:onClick="click"/>
+
+     
+ <TextView
+          android:id="@+id/manangertext"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@id/mandel"
+          android:layout_alignBottom="@id/mandel"
+          android:layout_alignParentLeft="true"
+          android:gravity="center_vertical"
+          android:text="日期琐琐碎碎琐琐碎碎琐琐琐" />
+<!-- <TextView
+          android:id="@+id/manangertext"
+          android:layout_width="wrap_content"
+          android:layout_height="50dp"
+          android:gravity="center_vertical"
+               android:text="日期琐琐碎碎琐琐碎碎琐琐琐" 
+               /> -->
+</RelativeLayout>

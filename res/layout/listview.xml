@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white" >
+      <RelativeLayout android:id="@+id/mode_bar"
+		android:layout_width="match_parent" android:layout_height="40dip"
+		android:background="@android:color/black" android:orientation="horizontal">
+		<Button
+		    android:id="@+id/btn_back"
+		    android:layout_width="36dp"
+		    android:layout_height="wrap_content"
+		    android:layout_centerVertical="true"
+		    android:layout_marginLeft="7dp"
+		  android:background="@drawable/icon"
+		    />
+		
+		<TextView android:id="@+id/back_text" android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@+id/btn_back"
+			android:layout_marginLeft="5dp"
+			android:text="解放军报"
+			android:layout_centerVertical="true"
+			android:textSize="17sp" />
+		
+		<ImageButton
+		    android:id="@+id/min_button3"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentRight="true"
+		    android:layout_centerVertical="true"
+		  android:background="@drawable/contentsizemin_background"
+		    android:layout_marginRight="17dp"
+		    />
+
+		<ImageButton
+		  	android:id="@+id/big_button3"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentRight="true"
+		    android:layout_centerVertical="true"
+		    android:layout_marginRight="72dp"
+		       	android:background="@drawable/contentsize_background"
+		    />
+
+			<ImageButton
+			    android:id="@+id/seach"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_alignTop="@+id/big_button3"
+			    android:layout_marginRight="17dp"
+			    android:layout_toLeftOf="@+id/big_button3"
+			    android:background="@drawable/searce" />
+<ImageButton
+    android:id="@+id/del"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignTop="@+id/seach"
+    android:layout_toLeftOf="@+id/seach"
+    android:background="@drawable/guanli" />
+
+<ProgressBar
+    android:id="@+id/progressBar1"
+    style="?android:attr/progressBarStyleSmall"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_toLeftOf="@+id/del" />
+
+	</RelativeLayout>
+<ListView
+    android:id="@+id/jianbaovontent"
+        android:layout_width="match_parent"
+    android:layout_height="match_parent"
+android:layoutAnimation="@anim/layout_bottom_to_top_slide"
+android:listSelector="@drawable/shape"
+        >
+</ListView>
+   
+
+</LinearLayout>

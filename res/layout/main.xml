@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/jfjbk" >
+  <ImageView
+    android:id="@+id/rl_splash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gaiwelcome" >
+</ImageView>
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/show"
+    android:visibility="gone" >
+   <FrameLayout
+       android:id="@+id/addFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:id="@+id/head_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+          />
+        <LinearLayout 
+         android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                 android:gravity="right"
+            android:layout_gravity="right|center_vertical" 
+            android:orientation="vertical"
+            >
+        <ImageView
+            android:id="@+id/manage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+              android:src="@drawable/abouttwo"
+            />
+  <ImageView
+            android:id="@+id/jianbao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+               android:src="@drawable/aboutone"
+            />
+        </LinearLayout>
+    </FrameLayout>
+    <org.chinamil.Mylistview
+        android:id="@+id/library"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"
+        android:cacheColorHint="#00000000"
+        android:scrollbars="none"
+        android:visibility="gone"
+        android:layoutAnimation="@anim/layout_bottom_to_top_slide"
+         >
+    </org.chinamil.Mylistview>
+</LinearLayout>
+ 
+</LinearLayout>
+
