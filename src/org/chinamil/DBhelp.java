@@ -31,7 +31,7 @@ public class DBhelp  extends SQLiteOpenHelper{
            db.execSQL("CREATE TABLE temp(_id INTEGER PRIMARY KEY AUTOINCREMENT,"
         		   + "date TEXT,"  + "content TEXT,"+ "path TEXT,"+"title TEXT)");
            db.execSQL("CREATE TABLE deail (_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-        		   + "date TEXT,"   + "path TEXT," + "content TEXT)");
+        		   + "date TEXT,"  + "content TEXT," + "path TEXT,"+ "title TEXT)");
            
      }
     @Override

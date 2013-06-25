@@ -55,11 +55,13 @@ static{
 		  Dbtemp.put(Heibai.TITLE, Heibai.TITLE);
 		  Dbtemp.put(Heibai.DATE, Heibai.DATE);
 		  Dbtemp.put(Heibai.PATH, Heibai.PATH);
+		  
 			matcher.addURI(authority, "deail", deaila);
 			 deail.put(Heibai.PUBLIC, Heibai.PUBLIC);
 			 deail.put(Heibai.CONTENT, Heibai.CONTENT);
 			 deail.put(Heibai.DATE, Heibai.DATE);
 			 deail.put(Heibai.PATH, Heibai.PATH);
+			 deail.put(Heibai.TITLE, Heibai.TITLE);
 }
 	@Override
 	public boolean onCreate() {

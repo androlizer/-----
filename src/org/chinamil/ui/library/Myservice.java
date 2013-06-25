@@ -1,5 +1,6 @@
 package org.chinamil.ui.library;
 import java.io.File;
+import java.security.PublicKey;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -26,7 +27,7 @@ public class Myservice extends IntentService{
 	public Myservice() {
 		super("解放军报");
 	}
-	Mythread thread;
+	//Mythread thread;
 	@Override
 	protected void onHandleIntent(Intent intent) {
 		//pool = Executors.newSingleThreadExecutor();
@@ -48,10 +49,12 @@ public class Myservice extends IntentService{
 					doc = Jsoup.parse(new File(path,who+"/"+nameString+"/index.htm"), "utf-8");
 				 song_box = doc.getElementsByAttribute("onclick");
 			for (Element element : song_box) {
+				//element.gete
 				ContentValues values=new ContentValues();
 				values.put(Heibai.DATE,Myservice.this.who);
 				values.put(Heibai.CONTENT,element.html());
 				values.put(Heibai.PATH,nameString);
+			   values.put(Heibai.TITLE,getTitle(element.attr("onclick")));
 				resolver.insert(Heibai.DEAIL_URI, values);
 			} //2013年4月28日
 			doc=null;
@@ -71,47 +74,18 @@ public class Myservice extends IntentService{
 	
 	}
 	}
-private class Mythread  implements Runnable{
-	ContentResolver resolver=getContentResolver();
-	File  pathString;  String who;
-	Elements songs=null;
-	Document	doc ;
-	Elements song_box;
-	Mythread(File path,String who){
-		this.pathString=path;
-		this.who=who;
-	}
-	public void run() {
-		try {
-		boolean susses=ZipDecrypter.decryptercrypto( new File(pathString,  who + ".zip"),pathString); //解压
-		if (susses) {     
-			//获取目录  通过缩略图来判断有多少目录
-		File [] files=	new File(pathString,who+"/thumbs").listFiles();
-		if (files!=null&&files.length>0) {
-			for (int x=0;x<files.length;x++) {
-			String  quannameString=files[x].getName();
-	String nameString=quannameString.substring(0,quannameString.indexOf(".")); // 获取包含 htm 文件的名字
-					doc = Jsoup.parse(new File(pathString,who+"/"+nameString+"/index.htm"), "utf-8");
-				 song_box = doc.getElementsByAttribute("onclick");
-			for (Element element : song_box) {
-				ContentValues values=new ContentValues();
-				values.put(Heibai.DATE,MD5.getMD5(Myservice.this.who));
-				values.put(Heibai.CONTENT,element.html());
-				values.put(Heibai.PATH,nameString);
-				resolver.insert(Heibai.DEAIL_URI, values);
-			} //2013年4月28日
-			doc=null;
-			song_box=null;
-					System.gc();;
-			}
-			
-		}
-					
-		}
-		} catch (Exception e) {
-			
-		}
+	/**
+	 * 获取名字
+	 * @param titString
+	 * @return
+	 */
+	public String getTitle(String titString){
+		String teString2=titString.substring(titString.lastIndexOf(",")).trim();
+		return teString2.substring(2,teString2.length()-3);
 	}
 	
-}
+	
+	
+	
+
 }

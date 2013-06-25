@@ -476,6 +476,7 @@ protected void onRestart() {
                  initialValues.put(Heibai.CONTENT, str);
                  initialValues.put(Heibai.DATE, date);
                 initialValues.put(Heibai.PATH,  currentIndex);
+              
             	getContentResolver().insert(Heibai.TEMP_URI, initialValues);
             	myhandler.sendEmptyMessage(2);
             	Message msg=new Message();
