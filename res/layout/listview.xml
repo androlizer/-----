@@ -7,14 +7,15 @@
       <RelativeLayout android:id="@+id/mode_bar"
 		android:layout_width="match_parent" android:layout_height="40dip"
 		android:background="@android:color/black" android:orientation="horizontal">
-		<Button
-		    android:id="@+id/btn_back"
-		    android:layout_width="36dp"
-		    android:layout_height="wrap_content"
-		    android:layout_centerVertical="true"
-		    android:layout_marginLeft="7dp"
-		  android:background="@drawable/icon"
-		    />
+	<ImageButton
+	        android:id="@+id/btn_back"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBottom="@+id/back_text"
+	        android:layout_alignParentLeft="true"
+	        android:background="@drawable/listitem_selector"
+	        android:scaleType="center"
+	        android:src="@drawable/icon3" />
 		
 		<TextView android:id="@+id/back_text" android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

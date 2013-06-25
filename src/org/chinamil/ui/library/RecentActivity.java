@@ -1278,7 +1278,7 @@ public class RecentActivity extends Activity implements OnClickListener {
 				break;
 			case 1:
 
-				if (cursor != null) { // 管理功能查询完毕后 有数据跳转
+				if (cursor != null) { // 查询完毕后 有数据跳转
 					if (cursor.getCount() > 0) {
 						// Intent intent= new Intent(RecentActivity.this,
 						// UrlItem.class);

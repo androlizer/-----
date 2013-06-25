@@ -116,7 +116,7 @@ OnDrawerOpenListener {
                 } */      
                 	 String imageStringf= loadurl.substring(0,loadurl.indexOf("ind"));
                 	 Log.i("xx","handle"+imageStringf);
-                 Intent intent=new Intent(WebviewActivity.this,Details3.class);
+                 Intent intent=new Intent(WebviewActivity.this,Details4.class);
                      intent.putExtra("image", imageStringf);
                       intent.putExtra("title",  (String) msg.obj);
                       intent.putExtra("who",  "bushi");
@@ -464,7 +464,6 @@ protected void onRestart() {
 
 
     final class JavaScript {// 这个Java 对象是绑定在另一个线程里的，
-    
     public void clickOnAndroid(final String str, final String id, 
     		final String name, final String title) {
     	/*if (isTabletDevice()) 

@@ -10,15 +10,16 @@
 	    android:layout_height="40dip"
 	    android:background="@android:color/black"
 	    android:orientation="horizontal" >
-
-	    <Button
+	    
+	    <ImageButton
 	        android:id="@+id/btn_back"
-	        android:layout_width="36dp"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_centerVertical="true"
-	        android:layout_marginLeft="7dp"
-	        android:background="@drawable/icon" 
-	      />
+	        android:layout_alignBottom="@+id/back_text"
+	        android:layout_alignParentLeft="true"
+	        android:background="@drawable/listitem_selector"
+	        android:scaleType="center"
+	        android:src="@drawable/icon3" />
 	    <ImageButton
 	        android:id="@+id/html_min_button"
 	        android:layout_width="wrap_content"
@@ -55,6 +56,18 @@
 	        android:text="解放军报"
 	        android:textSize="17sp" />
 	</RelativeLayout>
+	
+	<!-- <TextView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:id="@+id/title"
+        android:gravity="center_horizontal"
+                android:textStyle="bold"
+                     android:textSize="20dp"
+                     android:text="xxx"
+                     android:textColor="@android:color/black"
+        /> -->
+
 	<ListView 
 	   android:id="@+id/html2_listview"
 	     android:layout_width="match_parent"

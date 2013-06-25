@@ -10,17 +10,19 @@ import android.util.Log;
 public class JUntTEst extends AndroidTestCase{
 	
 	public void  deail() {
-		
-		Cursor c = getContext().getContentResolver().query(Data.CONTENT_URI,
-	          new String[] {Data._ID, Phone.NUMBER, Phone.TYPE, Phone.LABEL},
-	          null,
-	          null, null);
-		while (c.moveToNext()) {
-			
-			System.out.println(c.getString(1));
+		   Cursor  cursor = getContext().getContentResolver().query(Heibai.JIANBAO_URI, 
+				   new String[] {
+	                "_id", "bigtitle", 
+	                "title", "date", "content" },
+					null, null, null);
+		   if (cursor!=null&&cursor.getCount()>0) {
+			while (cursor.moveToNext()) {
+System.out.println(cursor.getString(2)+"bigtitle"+cursor.getString(4));
+			}
+		}else {
+			System.out.println("空空空空空空空空空空空空空空空空");
 		}
-		
-		}
+	}
 	public void deail2() {
 		String[]  clounm=new String[] {Heibai.PUBLIC, Heibai.CONTENT, Heibai.DATE };
 		Cursor  cursor = getContext().getContentResolver().query(Heibai.TEMP_URI, new String[]{"_id","content","date"},

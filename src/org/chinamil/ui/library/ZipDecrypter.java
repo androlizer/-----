@@ -24,7 +24,6 @@ import de.idyl.winzipaes.impl.ExtZipEntry;
  */
 @SuppressWarnings("unused")
 public class ZipDecrypter {
-
     /**
      * 获取html实体
      * 

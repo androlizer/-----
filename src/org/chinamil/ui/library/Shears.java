@@ -36,7 +36,7 @@ public class Shears extends Activity implements OnItemClickListener, OnClickList
     private Myquery query;
     private LayoutInflater layout;
     private Mycursor adapter;
-    private ImageButton minButton, bigButton, searchButton, delButton;
+    private ImageButton minButton, bigButton, searchButton, delButton,back;
     private LinkedList<TextView> list;
     private LinkedList<CheckBox> checklist;
     private  ProgressBar progressDialog;
@@ -55,6 +55,13 @@ public class Shears extends Activity implements OnItemClickListener, OnClickList
         minButton = (ImageButton) findViewById(R.id.min_button3);
         delButton = (ImageButton) findViewById(R.id.del);
         searchButton = (ImageButton) findViewById(R.id.seach);
+        back=(ImageButton) findViewById(R.id.btn_back);
+        back.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+finish();				
+			}
+		});
         bigButton.setOnClickListener(this);
         minButton.setOnClickListener(this);
         searchButton.setOnClickListener(this);
@@ -72,9 +79,7 @@ public class Shears extends Activity implements OnItemClickListener, OnClickList
         checklist = new LinkedList<CheckBox>();
         delLinkedList = new LinkedList<String>();
     }
-
     TextView ttTextView;
-
     private class Mycursor extends CursorAdapter {
 
         String newdate, olddate;
@@ -325,5 +330,9 @@ protected void onDeleteComplete(int token, Object cookie, int result) {
         super.onDestroy();
         checklist.clear();
     }
-
+@Override
+public void onBackPressed() {
+	super.onBackPressed();
+finish();
+}
 }

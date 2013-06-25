@@ -70,6 +70,10 @@
             android:name=".ui.library.Details3"
               android:theme="@style/test"
              />
+          <activity
+            android:name=".ui.library.Details4"
+              android:theme="@style/test"
+             />
    <activity
           
             android:name=".About"
