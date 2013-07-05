@@ -10,10 +10,9 @@ import android.util.Log;
 public class JUntTEst extends AndroidTestCase{
 	
 	public void  deail() {
-		   Cursor  cursor = getContext().getContentResolver().query(Heibai.JIANBAO_URI, 
-				   new String[] {
-	                "_id", "bigtitle", 
-	                "title", "date", "content" },
+		   Cursor  cursor = getContext().getContentResolver().query(Heibai.DEAIL_URI, 
+				   new String[] {Heibai.PUBLIC, Heibai.CONTENT,
+					Heibai.DATE, Heibai.PATH ,Heibai.TITLE},
 					null, null, null);
 		   if (cursor!=null&&cursor.getCount()>0) {
 			while (cursor.moveToNext()) {

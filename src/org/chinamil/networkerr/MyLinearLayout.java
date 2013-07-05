@@ -15,12 +15,12 @@ public class MyLinearLayout extends FrameLayout {
 		background3 = BitmapFactory.decodeResource(getResources(),
 				R.drawable.xiaban);//113 155
 	}
+	
 	@Override
 	protected void dispatchDraw(Canvas canvas) {
 		int count = getChildCount();
 		int top = count > 0 ? getChildAt(0).getTop() : 0;
 		int eage=getHeight()/(background.getHeight()+50);//计算界面需要显示多少横向的 书架
-		
 		background2=Tool.resizeBitmap(BitmapFactory.decodeResource(getResources(),
 				R.drawable.bk),background.getWidth(),
 				getHeight()/eage);//創建適合的背景圖片

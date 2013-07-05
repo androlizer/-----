@@ -240,15 +240,12 @@ private LinkedList<PdfDomin> getData(LinkedList<PdfDomin>data,int page,int count
 				imageView.setTextSize(rate);
 				PdfDomin pdfDomin=mArray.get(position);
 				imageView.setText(pdfDomin.title);
-				System.out.println(mArray.get(position).title+"我我我"+mArray.get(position).cover);
-			    
+			//	System.out.println(mArray.get(position).title+"我我我"+mArray.get(position).cover);
 					taskMytask =new Mytask(imageView); //执行异步加载缩略图
 		          //String ssString= cursor.getString(1);
 		            taskMytask.execute(pdfDomin.title,pdfDomin.cover);
-		        
 				/*imageView.setBackgroundResource(
 		        			R.drawable.addic_launcher_yuedu
-		        			
 		        			);*/
 		        	views.add(convertView);
 				return convertView;
@@ -361,15 +358,15 @@ private LinkedList<PdfDomin> getData(LinkedList<PdfDomin>data,int page,int count
 			        		Tool.getBitmapDrawable(getResources(),
 					        		BitmapFactory.decodeFile(getCacheDir()+"/"
 			        		       +MD5.getMD5(params[0])+".png"),	
-			        		       backgroundhei/2-20,
-			        		       backgroundhei-(backgroundhei/3));
+			        		       backgroundhei/3,//-20,
+			        		           backgroundhei-(backgroundhei/3));
 	            }else {
 	            	System.out.println("dont hava a url ");
 	            	Tool.getBitmapDrawable(getResources(),
 			        		BitmapFactory.decodeResource(getResources(),
 			        				R.drawable.addic_launcher_yuedu),	
-			        				  backgroundhei/2-20,
-			        				  backgroundhei-(backgroundhei/3));
+			        			    backgroundhei/3,//-20,
+			        		           backgroundhei-(backgroundhei/3));
 	                return null;
 	            }
 	                 

@@ -153,7 +153,8 @@ public class Details4 extends Activity implements OnClickListener {
 				pathString = image + indexString;
 			}
 
-			setViewData(mcursor.getString(1),mergeCursor.getString(4));
+			setViewData(mcursor.getString(1),
+				    	mcursor.getString(4));
 		}
 		return false;
 	}
@@ -178,7 +179,6 @@ public class Details4 extends Activity implements OnClickListener {
 			cursor.move(-1);
 			String de = "_id  DESC  LIMIT 7 OFFSET  0"; // 取前7个;
 			String where2 = Heibai.DATE + " = ? and " + Heibai.PATH + "= ?";
-
 			Cursor mcursor = contentResolver.query(Heibai.DEAIL_URI, clounm,
 					where2, new String[] { dString, tempPath }, de);
 			Cursor[] cursors = new Cursor[] { cursor, mcursor }; // 简单的合并2个cursor
@@ -266,6 +266,7 @@ public class Details4 extends Activity implements OnClickListener {
 		public LIstviewAdaoter(String text,String title) {
 			this.text = text;
 			this.mytitle=title;
+			System.out.println("LIstviewAdaoter"+title);
 		}
 		public int getCount() {
 			return 2;
