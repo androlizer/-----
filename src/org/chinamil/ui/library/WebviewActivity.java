@@ -116,7 +116,7 @@ OnDrawerOpenListener {
                 } */      
                 	 String imageStringf= loadurl.substring(0,loadurl.indexOf("ind"));
                 	 Log.i("xx","handle"+imageStringf);
-                 Intent intent=new Intent(WebviewActivity.this,Details4.class);
+                 Intent intent=new Intent(WebviewActivity.this,Details5.class);
                      intent.putExtra("image", imageStringf);
                       intent.putExtra("title",  (String) msg.obj);
                       intent.putExtra("who",  "bushi");

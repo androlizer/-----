@@ -70,6 +70,13 @@
             android:name=".ui.library.Details3"
               android:theme="@style/test"
              />
+           <activity
+            android:name=".ui.library.Details5"
+              android:theme="@style/test"
+             />
+            <activity
+            android:name=".ui.library.ImageDialog"
+             />
           <activity
             android:name=".ui.library.Details4"
               android:theme="@style/test"
@@ -79,9 +86,7 @@
             android:name=".About"
       />  
       <activity
-          
             android:name=".ui.library.Temp"
-       
       /> <activity
             android:name="org.chinamil.networkerr.ErrorBookShelfActivity"
               android:theme="@style/test"

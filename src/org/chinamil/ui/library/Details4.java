@@ -3,19 +3,6 @@ package org.chinamil.ui.library;
 /**
  * 连续翻页
  */
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-
-import org.chinamil.Heibai;
-import org.chinamil.R;
-import org.chinamil.Tools;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -29,8 +16,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
@@ -43,6 +32,19 @@ import android.widget.Toast;
 
 import com.aphidmobile.flip.FlipViewController;
 import com.aphidmobile.flip.FlipViewController.ViewFlipListener;
+
+import org.chinamil.Heibai;
+import org.chinamil.R;
+import org.chinamil.Tools;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Details4 extends Activity implements OnClickListener {
 	private FlipViewController flipView;
@@ -85,6 +87,8 @@ public class Details4 extends Activity implements OnClickListener {
 			flipView = new FlipViewController(this,
 					FlipViewController.HORIZONTAL);
 			adapter = new MyBaseAdapter(Details4.this);
+	//		android:descendantFocusability="blocksDescendants"
+			flipView.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
 			flipView.setAdapter(adapter);
 			setContentView(flipView);
 			flipView.setOnViewFlipListener(new ViewFlipListener() {
@@ -98,6 +102,7 @@ public class Details4 extends Activity implements OnClickListener {
 					}
 				}
 			});
+			
 		} else {
 			TextView xxTextView = new TextView(this);
 			xxTextView.setText("数据为空");
