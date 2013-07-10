@@ -77,6 +77,9 @@
             <activity
             android:name=".ui.library.ImageDialog"
              />
+             <activity
+            android:name=".ui.library.ImageDialog2"
+             />
           <activity
             android:name=".ui.library.Details4"
               android:theme="@style/test"
