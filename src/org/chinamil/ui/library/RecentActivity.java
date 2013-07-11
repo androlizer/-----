@@ -571,7 +571,6 @@ public class RecentActivity extends Activity implements OnClickListener {
 							.exists()) {
 						downloadButton.setVisibility(View.GONE);
 					}
-
 					if (new File(topcache, MD5.getMD5(cace.get(4)) + ".zip")
 							.exists()) {
 						downloadButton2.setVisibility(View.GONE);

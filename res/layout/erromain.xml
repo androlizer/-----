@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<org.chinamil.networkerr.MyLinearLayout
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:descendantFocusability="blocksDescendants"
+>
+ <ImageView 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/errbiaoti"
+	        />
+	<org.chinamil.networkerr.MyLinearLayout
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:id="@+id/addliner"
 >
-	    
-	    <ImageView 
-	        android:layout_width="match_parent"
-	        android:layout_height="60dp"
-	        android:background="@drawable/errbiaoti"
-	        />
-	    
+	   
 	     <FrameLayout 
       android:layout_width="fill_parent"
     android:layout_height="wrap_content"
@@ -43,10 +48,9 @@ android:visibility="gone"
                     android:layout_height="5dip"
                     android:background="@drawable/dot_normal"
                      /> -->
-                
-               
             </LinearLayout>
  
             </FrameLayout>
         
 </org.chinamil.networkerr.MyLinearLayout>
+</LinearLayout>

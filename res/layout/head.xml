@@ -15,7 +15,7 @@
             android:text="@string/back"
             android:textColor="#ffffff"
             android:textSize="10dp"
-            android:background="@drawable/back_left" />
+            android:background="@drawable/content_return_btn" />
 
         <TextView
             android:id="@+id/tv_head"

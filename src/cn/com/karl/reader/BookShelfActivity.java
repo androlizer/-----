@@ -131,7 +131,6 @@ public class BookShelfActivity extends BaseActivity implements OnClickListener, 
                                     downpdf(next, queue.get(next));
                                 }
                             }
-                            System.out.println("完成后的队列大小" + queue.size());
                         }
 
                     }	}
@@ -140,8 +139,6 @@ public class BookShelfActivity extends BaseActivity implements OnClickListener, 
                 case 3:
              
                 if (progressBar2!=null) {
-					
-				
                     // 下载错误通知
                     progressBar2.setVisibility(View.GONE);
                     if (!queue.isEmpty()) {
