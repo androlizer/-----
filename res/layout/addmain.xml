@@ -6,7 +6,8 @@
 	android:layout_height="fill_parent"
 	android:id="@+id/addliner"
 >
-<include layout="@layout/head" android:id="@+id/head"/>
+<include layout="@layout/head" 
+    android:id="@+id/head"/>
 
 <FrameLayout
 	android:orientation="vertical"

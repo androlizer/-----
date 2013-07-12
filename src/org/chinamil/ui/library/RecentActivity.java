@@ -26,6 +26,7 @@ import org.chinamil.Rotate3dAnimation;
 import org.chinamil.Tools;
 import org.chinamil.downland.fragments.MainActivity;
 import org.chinamil.networkerr.ErrorBookShelfActivity;
+import org.chinamil.networkerr.ErrorBookShelfActivityTouch;
 
 import android.accounts.NetworkErrorException;
 import android.app.Activity;
@@ -358,7 +359,7 @@ public class RecentActivity extends Activity implements OnClickListener {
 					myHandler.sendEmptyMessageDelayed(4, 1000L);
 				} catch (Exception e) {
 					Intent intent = new Intent(RecentActivity.this,
-							ErrorBookShelfActivity.class);
+							ErrorBookShelfActivityTouch.class);
 					startActivity(intent);
 					finish();
 					/*
@@ -426,8 +427,7 @@ public class RecentActivity extends Activity implements OnClickListener {
 			 */
 			View Frameone = (View) convertView.findViewById(R.id.framlayoutone);
 			View Frametwo = (View) convertView.findViewById(R.id.framlayouttwo);
-			View Framethree = (View) convertView
-					.findViewById(R.id.framlayoutthree);
+			View Framethree = (View) convertView.findViewById(R.id.framlayoutthree);
 			lp.gravity = Gravity.BOTTOM;
 			lp.bottomMargin = demo.bottomMargin;
 			lp.leftMargin = demo.leftMargin;

@@ -96,6 +96,11 @@
                android:screenOrientation="portrait"
       />  
       <activity
+            android:name="org.chinamil.networkerr.ErrorBookShelfActivityTouch"
+              android:theme="@style/test"
+               android:screenOrientation="portrait"
+      />  
+      <activity
     
             android:name=".ui.library.UrlItem"
               android:theme="@style/test"

@@ -13,6 +13,7 @@ import org.chinamil.ParserXml;
 import org.chinamil.PdfDomin;
 import org.chinamil.ProgressBarListener;
 import org.chinamil.R;
+import org.chinamil.ui.library.Myservice;
 import org.chinamil.ui.library.RecentActivity;
 import org.chinamil.ui.library.WebviewActivity;
 import org.chinamil.ui.library.ZipDecrypter;
@@ -112,11 +113,18 @@ public class BookShelfActivity extends BaseActivity implements OnClickListener, 
 						}
                         synchronized (BookShelfActivity.class) {
                             if (!queue.isEmpty()) {
+                                
                                 Iterator<PdfDomin> iterator = queue.keySet().iterator();
                                 iterator.hasNext();
                                 PdfDomin next = iterator.next();
-                                boolean success = ZipDecrypter.decryptercrypto(
-                                        new File(topcache, MD5.getMD5(next.title) + ".zip"), topcache);
+                        /*        boolean success = ZipDecrypter.decryptercrypto(
+                                        new File(topcache, MD5.getMD5(next.title) + ".zip"), topcache);*/
+                                
+                                Intent intent=new Intent(BookShelfActivity.this,Myservice.class);
+                                intent.putExtra("path",topcache.getAbsolutePath());
+                                intent.putExtra("who",next.title); 
+                                startService(intent);
+                                
                                 if (!weList.contains(next.title)) {
                                     weList.add(next.title);
                                 }

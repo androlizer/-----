@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical"
-	android:descendantFocusability="blocksDescendants"
+
+	android:id="@+id/viewpager_gridview"
 >
- <ImageView 
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
+
+ <FrameLayout 
+	        	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	      android:id="@+id/bain">
+  <ImageView android:layout_width="match_parent"
+	      android:layout_height="wrap_content"
 	        android:background="@drawable/errbiaoti"
-	        />
+	      /> 
+	        <TextView android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:text="删除"
+	      android:layout_gravity="right|center_vertical"
+	      android:visibility="gone"
+	      /> 
+	      </FrameLayout>
+	      
+ 
 	<org.chinamil.networkerr.MyLinearLayout
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:id="@+id/addliner"
+	    android:layout_below="@+id/bain"
 >
-	   
 	     <FrameLayout 
       android:layout_width="fill_parent"
     android:layout_height="wrap_content"
@@ -33,7 +47,8 @@ android:visibility="gone"
             android:id="@+id/vp"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" 
-            android:background="#00000000"/>
+            android:background="#00000000"
+            />
             <LinearLayout
                 android:id="@+id/dot"
                 android:layout_width="wrap_content"
@@ -53,4 +68,4 @@ android:visibility="gone"
             </FrameLayout>
         
 </org.chinamil.networkerr.MyLinearLayout>
-</LinearLayout>
+</RelativeLayout>
