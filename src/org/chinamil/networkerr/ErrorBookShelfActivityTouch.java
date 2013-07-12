@@ -2,7 +2,9 @@ package org.chinamil.networkerr;
 /**
  * 能够触摸拖动以及删除的版本
  */
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -25,6 +27,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
@@ -40,6 +43,7 @@ import org.chinamil.ParserXml;
 import org.chinamil.PdfDomin;
 import org.chinamil.R;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -54,11 +58,13 @@ implements MyLinearLayout.OndsipatchDraw  ,OnTouchListener  {
 	private int  backgroundhei,uppage;// 每个框的高
 	private MyLinearLayout relativeLayout;
 	private boolean touch=false;//是否在拖动
-	int location[]=new int[2];
+	int location[]=new int[2];//被触摸选中view 的坐标
+	int lajilocation[] =new int[2];//垃圾箱view 的坐标
 	LinearLayout linerlayout;
-	boolean isFirst;
+	boolean isFirst,isTouch;//是否是第一次画 与 是否是触摸模式
 	LinearLayout.LayoutParams layoutParams;
 	float rate;//字體大小
+	ImageView lajiImageView;
 	HashMap<Integer,  LinkedList<PdfDomin>>dataHashMap;
 	private List<View> dotViews;
 	Cursor cursor;
@@ -96,6 +102,7 @@ implements MyLinearLayout.OndsipatchDraw  ,OnTouchListener  {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.erromain);
 		rl=(RelativeLayout) findViewById(R.id.viewpager_gridview);
+		lajiImageView=(ImageView) findViewById(R.id.laji);
 		linerlayout=(LinearLayout) findViewById(R.id.dot); //园点
 		relativeLayout=(MyLinearLayout) findViewById(R.id.addliner);//自定义mylinearlayout
 		relativeLayout.setOndsipatchDrawListener(this);//设置监听 获取每个框的高
@@ -349,24 +356,30 @@ private class Myarrayadapter extends ArrayAdapter<PdfDomin>{
 			                startActivity(intent);
 					}
 				});*/
-				
+				inflate.setOnItemClickListener(new OnItemClickListener() {
+
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        if (!isTouch) {
+                            Log.i("xx", "setOnItemClickListener");             
+                        }
+                    }
+                });
 	
 				inflate.setOnItemLongClickListener(new OnItemLongClickListener( ) {
                             public boolean onItemLongClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                                 Log.i("xx", position+"xx");
                                 if (parent instanceof GridView) { //缩小grdiiew的item
+                                    isTouch=true;
                                     ScaleAnimation animation= new ScaleAnimation(1.0f,0.8f, 1.0f, 0.8f);
                                     animation.setDuration(700);
-                                    animation.setFillAfter(false);
+                                    animation.setFillAfter(true);
                                  for (int j = 0; j < parent.getChildCount(); j++) {
                                      if (j!=position) {
                                        View view2=  parent.getChildAt(j);
                                        view2.startAnimation(animation);
                                     }
-                                  
                                 }   
-                                    
                                 }
                                 int []location=new int[2];
                                 view.getLocationOnScreen(location);
@@ -378,7 +391,8 @@ private class Myarrayadapter extends ArrayAdapter<PdfDomin>{
                                 return true;
                             }
                 });
-		   inflate.setTag("no");//用来判断是否启用viewpager的滑动
+				
+		    inflate.setTag("no");//用来判断是否启用viewpager的滑动
 				inflate.setAdapter(new Myarrayadapter(ErrorBookShelfActivityTouch.this, inflate.getId(), dataHashMap.get(i)));
 				imageViews.add(inflate);
 			}
@@ -405,8 +419,11 @@ private float ACTION_DOWNX,ACTION_DOWNy;
     private int aniTo = -1;
     private boolean doingAni = false;
     int position,myposition;
-
+    int mydraw[]=new int[2];
     public boolean onTouch(View v, MotionEvent event) {
+        lajiImageView.getLocationOnScreen(lajilocation);
+        Log.i("xx", "ljillllllllljjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"+lajilocation[0]+"ggggggggg"+lajilocation[1]);
+        lajiImageView.setVisibility(View.VISIBLE);
         //getRawX()和getRawY()获得的是相对屏幕的位置
         //getX()相对于控件的本身
         GridView mGridView=imageViews.get(viewPager.getCurrentItem());
@@ -417,7 +434,7 @@ private float ACTION_DOWNX,ACTION_DOWNy;
          myposition=position;
         switch (event.getAction()) {
         case MotionEvent.ACTION_DOWN:
-            System.out.println("ACTION_DOWNlonglllllllllllllllllllllll");
+            Log.i("xx","ACTION_DOWNlong");
             //判断是点击位置是否在GridView中
             ACTION_DOWNX=event.getX();
             ACTION_DOWNy=event.getY();
@@ -451,20 +468,23 @@ private float ACTION_DOWNX,ACTION_DOWNy;
             break;
         // 拖动动作中
         case MotionEvent.ACTION_MOVE:
-            System.out.println("ACTION_MOVElonglllllllllllllllllllllll");
+            Log.i("xx","ACTION_MOVElong");
             if (mDragView == null) {
                 break;
             }
+            mDragView.getLocationOnScreen(mydraw);
             // 从ImageView中获取所有布局参数
             RelativeLayout.LayoutParams lp = (LayoutParams) mDragView.getLayoutParams();
             //减去偏移量为了让图片能以触摸点为中心显示
            lp.leftMargin = (int) x - clickX;
-            lp.topMargin = (int) y - clickY+(backgroundhei-backgroundhei/10)/3;
+            lp.topMargin = (int) y - clickY;//+(backgroundhei-backgroundhei/10)/3
             //设置ImageView的布局参数
             mDragView.setLayoutParams(lp);
             //记住要替换的位置，相对于资源位置中
             to = position;
-            
+          Log.i("xx", mydraw[0]+"movemove"+mydraw[1]);
+        /* */
+         //   Log.i("xx", event.getX()+"movemove"+event.getY());
             //判断交换条件，替换位置要在GridView中，原始位置不等于即将替换位置，动画效果是否结束
          /*   if (to != -1 && from != to && !doingAni) {
                Myarrayadapter  madapter=(Myarrayadapter)mGridView.getAdapter();
@@ -478,7 +498,9 @@ private float ACTION_DOWNX,ACTION_DOWNy;
             }*/
             break;
         case MotionEvent.ACTION_UP:
-            System.out.println("ACTION_UPlllllllllllllllllllllll");
+            isTouch=false;
+            lajiImageView.setVisibility(View.INVISIBLE);
+            Log.i("xx","ACTION_UPlllllllllllllllllllllll");
             if (mDragView != null) {
                 //移除自定义的ImageView
                 rl.removeView(mDragView);
@@ -486,17 +508,23 @@ private float ACTION_DOWNX,ACTION_DOWNy;
                         - mGridView.getFirstVisiblePosition());
                 temp.setVisibility(View.VISIBLE);
             }
-        /*    for (GridView element : imageViews) {
+            
+           for (GridView element : imageViews) {
                 if (element.getTag().equals("zhuce")) {
                     element.setOnTouchListener(null);
-                    element.setTag("no");
+                      element.setTag("no");
+                      for (int i = 0; i <element.getChildCount(); i++) {
+                          element.getChildAt(i).clearAnimation();
+                    }
                 }
-            }*/
-            if (event.getX()==ACTION_DOWNX) {//点击动作
-                System.out.println(mGridView.pointToPosition((int) event.getX(), (int)event.getY()));
-                return false;
             }
-        
+           if (mydraw[1]<=0) {
+            if (!isShow) {
+                ErrorDialog("删除");
+                isShow=!isShow;
+          }
+         
+      }
         }
         return true;
     }
@@ -506,5 +534,40 @@ public void onBackPressed() {
     finish();
 super.onBackPressed();
 }
-	   
+boolean isShow;
+public void ErrorDialog(String title) {
+    new AlertDialog.Builder(this)
+            .setTitle(title)
+            .setIcon(R.drawable.imageback)
+            .setMessage("确定删除？")
+            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+                public void onClick(DialogInterface dialog, int which) {
+                    isShow=!isShow;
+                    dialog.cancel();
+                    /*         if (!who.isEmpty()) {
+
+                        // new File(topcache, MD5.getMD5(who.get(0)) +
+                        // ".zip").delete();
+                        
+                         * if (0!=update) { String dateString=
+                         * getDateString(who.get(0)); new File(topcache,
+                         * MD5.getMD5(dateString) + ".zip").delete(); }else
+                         * {
+                        new File(topcache, MD5.getMD5(who.get(0)) + ".zip")
+                                .delete();
+                        // }
+
+                    }*/
+                    System.exit(0);
+                }
+            })
+            .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+                public void onClick(DialogInterface dialog, int which) {
+                    isShow=!isShow;
+                    dialog.cancel();
+                }
+            }).show();
+}   
 }
