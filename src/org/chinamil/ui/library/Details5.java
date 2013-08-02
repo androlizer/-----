@@ -271,7 +271,6 @@ public class Details5 extends Activity implements OnClickListener ,OnItemClickLi
 		public LIstviewAdaoter(String text,String title) {
 			this.text = text;
 			this.mytitle=title;
-			System.out.println("LIstviewAdaoter"+title);
 		}
 		public int getCount() {
 			return 2;
@@ -342,11 +341,18 @@ public class Details5 extends Activity implements OnClickListener ,OnItemClickLi
 				textsize = textsize + 5f;
 				View ss = (View) adapter.getItem(flipView
 						.getSelectedItemPosition());
+			    if (ss!=null) {
 				ListView listView = (ListView) ss
 						.findViewById(R.id.html2_listview);
-				View view=listView.getChildAt(1);
-				TextView titleview = (TextView) view.findViewById(R.id.content);
-				titleview.setTextSize(textsize);
+			for (int i = 0; i < listView.getChildCount(); i++) {
+			    View view=listView.getChildAt(i);
+			    if (view instanceof LinearLayout) {
+			        TextView titleview = (TextView) view.findViewById(R.id.content);
+		             titleview.setTextSize(textsize);
+                }
+			   
+            }
+                }
 
 			}
 			break;
@@ -355,11 +361,17 @@ public class Details5 extends Activity implements OnClickListener ,OnItemClickLi
 				textsize = textsize - 5f;
 				View ss = (View) adapter.getItem(flipView
 						.getSelectedItemPosition());
-				ListView listView = (ListView) ss
-						.findViewById(R.id.html2_listview);
-				View view=listView.getChildAt(1);
-				TextView titleview = (TextView) view.findViewById(R.id.content);
-				titleview.setTextSize(textsize);
+			    if (ss!=null) {
+				ListView listView = (ListView) ss.findViewById(R.id.html2_listview);
+				for (int i = 0; i < listView.getChildCount(); i++) {
+	                View view=listView.getChildAt(i);
+	                if (view instanceof LinearLayout) {
+	                    TextView titleview = (TextView) view.findViewById(R.id.content);
+	                     titleview.setTextSize(textsize);
+	                }
+	            }
+                }
+				
 			}
 			break;
 		case R.id.html_shears:

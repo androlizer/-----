@@ -13,6 +13,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -66,6 +67,7 @@ implements MyLinearLayout.OndsipatchDraw  ,OnTouchListener  {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
                 case 0:
+                    if (dataHashMap!=null) {
                     viewPager.setAdapter(new MyAdapter());
                    viewPager.setOnPageChangeListener(new OnPageChangeListener() {
                         public void onPageSelected(int arg0) {
@@ -82,6 +84,7 @@ implements MyLinearLayout.OndsipatchDraw  ,OnTouchListener  {
                             }
                         }
                     });
+                    }
                     break;
                 default:
                     break;
@@ -107,6 +110,7 @@ implements MyLinearLayout.OndsipatchDraw  ,OnTouchListener  {
 				null,
 				null);
 		dataHashMap=cursortolist(cursor);
+		Log.i("xx", "oncreate");
 	     if (dataHashMap!=null) {
 		viewPager = (ViewPager) findViewById(R.id.vp);
 		 viewPager.setOffscreenPageLimit(1);
@@ -479,8 +483,10 @@ private class Myarrayadapter extends ArrayAdapter<PdfDomin>{
 		public boolean onTouchEvent(MotionEvent event) {
 		return super.onTouchEvent(event);
 		}
-    public void MyDraw(int eage) {
+   
+		public void MyDraw(int eage) {
         backgroundhei=eage;
+        Log.i("xx", "MyDraw");
         if (!isFirst && backgroundhei!=0) {
             mHandler.sendEmptyMessageDelayed(0, 1000L);
             isFirst=true;

@@ -3,31 +3,6 @@ package org.chinamil.ui.library;
 /**
  * 需改动 548行  用到teStrings
  */
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Timer;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import org.chinamil.About;
-import org.chinamil.Demo;
-import org.chinamil.Heibai;
-import org.chinamil.MD5;
-import org.chinamil.MultDownloader;
-import org.chinamil.ParserXml;
-import org.chinamil.PdfDomin;
-import org.chinamil.ProgressBarListener;
-import org.chinamil.R;
-import org.chinamil.Rotate3dAnimation;
-import org.chinamil.Tools;
-import org.chinamil.downland.fragments.MainActivity;
-import org.chinamil.networkerr.ErrorBookShelfActivity;
-import org.chinamil.networkerr.ErrorBookShelfActivityTouch;
-
 import android.accounts.NetworkErrorException;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -61,7 +36,6 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
-import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -71,7 +45,31 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import cn.com.karl.reader.BookShelfActivity;
+
+import org.chinamil.About;
+import org.chinamil.Demo;
+import org.chinamil.Heibai;
+import org.chinamil.MD5;
+import org.chinamil.MultDownloader;
+import org.chinamil.ParserXml;
+import org.chinamil.PdfDomin;
+import org.chinamil.ProgressBarListener;
+import org.chinamil.R;
+import org.chinamil.Rotate3dAnimation;
+import org.chinamil.Tools;
+import org.chinamil.networkerr.ErrorBookShelfActivity;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Timer;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @SuppressWarnings("unused")
 public class RecentActivity extends Activity implements OnClickListener {
@@ -359,7 +357,7 @@ public class RecentActivity extends Activity implements OnClickListener {
 					myHandler.sendEmptyMessageDelayed(4, 1000L);
 				} catch (Exception e) {
 					Intent intent = new Intent(RecentActivity.this,
-							ErrorBookShelfActivityTouch.class);
+							ErrorBookShelfActivity.class);
 					startActivity(intent);
 					finish();
 					/*

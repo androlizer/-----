@@ -144,14 +144,16 @@ finish();
                 newdate = cursor.getString(3);
                 cursor.moveToPosition(position - 1);
                 olddate = cursor.getString(3);
+                System.out.println(newdate+"vvvvvvvvvv"+olddate);
+                if (newdate!=null&&olddate!=null) 
                 if (!newdate.equals(olddate)) {
                     textViewd.setText(newdate);
                     textViewd.setVisibility(View.VISIBLE);
                 }
                 cursor.moveToPosition(position);
             } else {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
-                String c = sdf.format(System.currentTimeMillis());
+               /* SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+                String c = sdf.format(System.currentTimeMillis());*/
                 textViewd.setVisibility(View.VISIBLE);
                  textViewd.setText(cursor.getString(3));
             }
@@ -329,6 +331,7 @@ protected void onDeleteComplete(int token, Object cookie, int result) {
         // TODO Auto-generated method stub
         super.onDestroy();
         checklist.clear();
+        
     }
 @Override
 public void onBackPressed() {
