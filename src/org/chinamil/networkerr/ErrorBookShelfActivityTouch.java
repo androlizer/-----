@@ -368,7 +368,6 @@ private class Myarrayadapter extends ArrayAdapter<PdfDomin>{
 				inflate.setOnItemLongClickListener(new OnItemLongClickListener( ) {
                             public boolean onItemLongClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                                Log.i("xx", position+"xx");
                                 if (parent instanceof GridView) { //缩小grdiiew的item
                                     isTouch=true;
                                     ScaleAnimation animation= new ScaleAnimation(1.0f,0.8f, 1.0f, 0.8f);
@@ -383,7 +382,8 @@ private class Myarrayadapter extends ArrayAdapter<PdfDomin>{
                                 }
                                 int []location=new int[2];
                                 view.getLocationOnScreen(location);
-                                MotionEvent event=MotionEvent.obtain(System.currentTimeMillis(), System.currentTimeMillis(), MotionEvent.ACTION_DOWN, 
+                                MotionEvent event=MotionEvent.obtain(System.currentTimeMillis(), 
+                                        System.currentTimeMillis(), MotionEvent.ACTION_DOWN, 
                                         location[0], location[1], 0);
                                onTouch(view, event);
                                inflate.setOnTouchListener(ErrorBookShelfActivityTouch.this);

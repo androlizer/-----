@@ -13,7 +13,6 @@ public class Myviewpager extends ViewPager {
 	}
 	public Myviewpager(Context context, AttributeSet attrs) {
 		super(context, attrs);
-
 	}
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {

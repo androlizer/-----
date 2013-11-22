@@ -225,24 +225,27 @@ OnDrawerOpenListener {
         sliding.setOnDrawerOpenListener(this);
         gallery.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				if (adaMyadapter!=null) {
-					adaMyadapter.setSelectedTab(position);
-				}
+				
+				    if (adaMyadapter!=null) {
+	                    adaMyadapter.setSelectedTab(position);
+	                }
                 synchronized (WebviewActivity.class) {
                     if (!isload) {// "file:///mnt/sdcard/01/index.htm",
-                        index = position;
-                        // "file:///mnt/sdcard/01/index.htm",
-                        // 拼路径
-                        // 三种方式,一种是loadRequest,还有个就是loadHTMLString,最后loadData
-                        loadurl=root.getAbsolutePath() + "/" + whoString + "/" + url.get(position);
-                        webView.loadUrl("file:///" + root.getAbsolutePath() + "/" + whoString + "/" + url.get(position));
-                        currentIndex=url.get(position).substring(0,2);
+                      if (index!=position) {
+                          // "file:///mnt/sdcard/01/index.htm",
+                          // 拼路径
+                          // 三种方式,一种是loadRequest,还有个就是loadHTMLString,最后loadData
+                          loadurl=root.getAbsolutePath() + "/" + whoString + "/" + url.get(position);
+                          webView.loadUrl("file:///" + root.getAbsolutePath() + "/" + whoString + "/" + url.get(position));
+                          currentIndex=url.get(position).substring(0,2);
+                          view.startAnimation(AnimationUtils.loadAnimation(WebviewActivity.this, R.anim.fangda));
+                           index=position;
+                    }
                        
-                        view.startAnimation(AnimationUtils.loadAnimation(WebviewActivity.this, R.anim.fangda));
                     } else {
                         Toast.makeText(WebviewActivity.this, "上版加载中...", 1).show();
                     }
-                }
+                }  
                 // Toast.makeText(WebviewguiActivity.this, position+"", 1).show();
             }
         });
@@ -476,7 +479,6 @@ protected void onRestart() {
                  initialValues.put(Heibai.CONTENT, str);
                  initialValues.put(Heibai.DATE, date);
                 initialValues.put(Heibai.PATH,  currentIndex);
-              
             	getContentResolver().insert(Heibai.TEMP_URI, initialValues);
             	myhandler.sendEmptyMessage(2);
             	Message msg=new Message();

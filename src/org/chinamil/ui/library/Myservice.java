@@ -76,7 +76,8 @@ public class Myservice extends IntentService{
 	 */
 	public String getTitle(String titString){
 		String teString2=titString.substring(titString.lastIndexOf(",")).trim();
-		return teString2.substring(2,teString2.length()-3);
+		
+		return teString2.substring(2,teString2.length()-3).replace("'", "").replace("“", "").replace("\"", "");
 	}
 	
 	

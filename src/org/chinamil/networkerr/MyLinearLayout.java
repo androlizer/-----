@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 public class MyLinearLayout extends FrameLayout {
-    private Bitmap background,background2 ,background3,background5;
+    private Bitmap background,background2 ,background3;
     OndsipatchDraw onDraw;
     FrameLayout.LayoutParams layoutParams;
 public  int eage,nogengg;
@@ -36,7 +36,6 @@ private void init() {
         int count = getChildCount();
         int width = getWidth();
         int height = getHeight();// 768 964 3
-     
         nogengg= eage=getHeight()/3;//每个书架的高
             onDraw.MyDraw(eage);
         background2=Tool.resizeBitmap(BitmapFactory.decodeResource(getResources(),
@@ -44,7 +43,6 @@ private void init() {
                 eage);//創建適合的背景圖片
         int backgroundWidth = background2.getWidth();
         int backgroundHeight = background2.getHeight()+0;
-    
         for (int y = 0; y < height; y += backgroundHeight) {
             for (int x = 0; x < width; x += backgroundWidth) {
                 canvas.drawBitmap(background2, x, y-5, null);
