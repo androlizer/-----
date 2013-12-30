@@ -14,8 +14,12 @@ import android.database.Cursor;
 import android.database.MergeCursor;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.Html.ImageGetter;
+import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -32,6 +36,7 @@ import android.widget.Toast;
 
 import com.aphidmobile.flip.FlipViewController;
 import com.aphidmobile.flip.FlipViewController.ViewFlipListener;
+import com.example.androidtest.MxgsaTagHandler;
 
 import org.chinamil.Heibai;
 import org.chinamil.R;
@@ -54,7 +59,7 @@ public class Details5 extends Activity implements OnClickListener ,OnItemClickLi
 	private MyBaseAdapter adapter;
 	private LinkedList<View> IMG_DESCRIPTIONS = new LinkedList<View>();
 	private String LISTVIEW_DESCRIPTIONS;// ///////
-	// private ImageGetter imageGetter;
+	 private ImageGetter imageGetter;
 	private String image;
 	private MergeCursor mergeCursor;
 	int index = 1;
@@ -108,29 +113,17 @@ public class Details5 extends Activity implements OnClickListener ,OnItemClickLi
 			xxTextView.setText("数据为空");
 			setContentView(xxTextView);
 		}
-		/*
-		 * imageGetter = new ImageGetter() { public Drawable getDrawable(String
-		 * source) { source = pathString + "/" + source; Drawable drawable =
-		 * null; if (source != null) { Log.i("xx", source);
-		 * 
-		 * drawable 图片 int rId=Integer.parseInt(source);
-		 * drawable=getResources().getDrawable(rId); drawable.setBounds(0, 0,
-		 * drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight()); return
-		 * drawable;
-		 * 
-		 * // sd卡图片 try { drawable = Drawable.createFromPath(source);
-		 * drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
-		 * drawable.getIntrinsicHeight()); return drawable; // 网络图片 需要另开线程
-		 * 
-		 * try { url = new URL(source); drawable =
-		 * Drawable.createFromStream(url.openStream(), ""); } catch (Exception
-		 * e) { e.printStackTrace(); return null; } drawable.setBounds(0, 0,
-		 * drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight()); return
-		 * drawable;
-		 * 
-		 * } catch (Exception e) { return null; } } else { Log.i("xx", "空"); }
-		 * return null; } };
-		 */
+		  imageGetter = new ImageGetter() {
+	            public Drawable getDrawable(String source) {
+	                Drawable drawable = null;
+	                if (source != null&&!source.contains(".jpg")) {
+	                      drawable=getResources().getDrawable(R.drawable.player);
+	                      drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
+	                      drawable.getIntrinsicHeight()); 
+	                      return drawable;
+	                } return null;
+	            }
+	        };
 	}
 
 	/**
@@ -304,11 +297,40 @@ public class Details5 extends Activity implements OnClickListener ,OnItemClickLi
 				return gallery;
 			} else {
 				if (convertView == null)
-					convertView=getLayoutInflater().inflate(R.layout.twotixtview, null);
+			    convertView=getLayoutInflater().inflate(R.layout.twotixtview, null);
 				TextView	title =(TextView) convertView.findViewById(R.id.title);
 				TextView 	content =(TextView) convertView.findViewById(R.id.content);
-				content.setText(Html.fromHtml(text));
+				Document document=Jsoup.parse(text);
 				title.setText(Html.fromHtml(mytitle));
+				  String teString=null;
+				  text=text.replace(mytitle, "");
+				  teString=text;
+				  teString=teString.replace(mytitle, "");
+				   	String []videourlString=getVideoUrl(text);
+				   // content.setText(Html.fromHtml(text));
+				   	if (videourlString.length>0&&videourlString[0].contains("http://")) {
+				   	 for (int i = 0; i < videourlString.length; i++) {
+		                    if (videourlString[i].contains("http://")) {
+		                        if (videourlString[i].contains("mp4")) {
+		                            teString=teString.replace(videourlString[i],
+		                                    " ");
+                                }
+		                     teString=teString.replace(videourlString[i],
+		                 "<u><a href=\""+videourlString[i]+"\"><src><IMG src=\"ic_launcher\"/></src></a></u>");
+		                    
+		                    }
+		                } content.setText(Html.fromHtml(teString,
+	                             imageGetter,new MxgsaTagHandler(Details5.this, videourlString[0])));
+                    }else {
+                        content.setText(Html.fromHtml(text));
+                    }
+				
+                
+               
+				/*   new MxgsaTagHandler(Details5.this,    , imageGetter, null
+                   videourlString)) content.setText(Html.fromHtml(text));*/
+	                    content.setClickable(true);
+	                    content.setMovementMethod(LinkMovementMethod.getInstance());
 				return convertView;
 			}
 		}
@@ -471,5 +493,34 @@ public class Details5 extends Activity implements OnClickListener ,OnItemClickLi
         }
       
     }
-
+/**
+ * 获取视频地址
+ * @param text
+ * @return
+ */
+    public String[] getVideoUrl(String text ) {
+        String myString[]=new String[2];
+            try {
+                myString[0]=text.substring(text.indexOf("plav>")+5,text.indexOf("</plav"));
+            } catch (Exception e) {
+                Log.i("xx", "出现异常getVideoUrl");
+                
+            } 
+            try {
+             myString[1]=text.substring(text.indexOf("pladv>")+6,text.indexOf("</pladv"));
+            } catch (Exception e) {
+                Log.i("xx", "出现异常getVideoUrl");
+                if (myString[0]==null) {
+                    myString[0]=text;
+                }
+            } 
+            
+    
+   
+    return myString;
+   
 }
+    
+    
+}
+

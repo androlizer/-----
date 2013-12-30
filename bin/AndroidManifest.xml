@@ -7,12 +7,19 @@
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="17" />
-
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>  
+	<uses-permission android:name="android.permission.GET_TASKS"/>  
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+  <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <instrumentation
+     <uses-permission android:name="android.permission.WAKE_LOCK" />
+      <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="org.chinamil" />
     <supports-screens
@@ -29,6 +36,8 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:largeHeap="true"
+        android:name="qianlong.qlmobile.ui.App"
+       
          >    <uses-library android:name="android.test.runner" />
             <!--
                  android:name="qianlong.qlmobile.ui.App"
@@ -37,8 +46,9 @@
         <activity
             android:hardwareAccelerated="true"
             android:label="@string/app_name"
-            android:name=".ui.library.RecentActivity"
-            android:theme="@style/test" >
+            android:name=".ui.library.CopyOfRecentActivity"
+            android:theme="@style/test"
+            android:screenOrientation="sensorPortait" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,73 +64,115 @@
             </intent-filter>
         </activity>
         -->
+         <activity
+            android:name="io.vov.vitamio.activity.InitActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
      <activity
             android:name=".ui.library.Mananger"
-             android:screenOrientation="portrait"
-                    android:theme="@style/test"  />
+                    android:theme="@style/test"  
+                       android:screenOrientation="sensorPortait"/>
       <activity
             android:name=".ui.library.Details"
               android:theme="@style/test"
+                 android:screenOrientation="sensorPortait"
              />
          <activity
             android:name=".ui.library.Details2"
               android:theme="@style/test"
+                        android:screenOrientation="sensorPortait"
              />
          <activity
             android:name=".ui.library.Details3"
               android:theme="@style/test"
+                        android:screenOrientation="sensorPortait"
              />
            <activity
+            android:name=".ui.library.WebPlayer"
+              android:theme="@style/test"
+                        android:screenOrientation="sensorPortait"
+             /><activity
             android:name=".ui.library.Details5"
               android:theme="@style/test"
+                        android:screenOrientation="sensorPortait"
              />
             <activity
             android:name=".ui.library.ImageDialog"
-             />
+                       android:screenOrientation="sensorPortait"/>
              <activity
             android:name=".ui.library.ImageDialog2"
+                      android:screenOrientation="sensorPortait"    
              />
           <activity
             android:name=".ui.library.Details4"
               android:theme="@style/test"
+                        android:screenOrientation="sensorPortait"
              />
    <activity
           
             android:name=".About"
+                      android:screenOrientation="sensorPortait"
       />  
+       <activity
+            android:name="com.zxing.activity.CaptureActivity"
+              android:theme="@style/test"
+                        android:screenOrientation="sensorPortait"
+      /> 
+      
+        <activity
+            android:name="com.zxing.activity.VideoWebview"
+              android:theme="@style/test"
+                        android:screenOrientation="sensorPortait"
+      /> 
+       
+       
+       <activity
+          
+            android:name="com.example.androidtest.VideoBuffer"
+                      android:screenOrientation="sensorPortait"
+      />
       <activity
             android:name=".ui.library.Temp"
-      /> <activity
+                      android:screenOrientation="sensorPortait"
+      /> 
+      <activity
             android:name="org.chinamil.networkerr.ErrorBookShelfActivity"
               android:theme="@style/test"
-               android:screenOrientation="portrait"
+                        android:screenOrientation="sensorPortait"
+               
       />  
       <activity
             android:name="org.chinamil.networkerr.ErrorBookShelfActivityTouch"
               android:theme="@style/test"
-               android:screenOrientation="portrait"
+                  android:screenOrientation="sensorPortait"
       />  
       <activity
     
             android:name=".ui.library.UrlItem"
               android:theme="@style/test"
+                        android:screenOrientation="sensorPortait"
       />  
       
        <activity
             android:name="org.chinamil.downland.fragments.MainActivity"
-            
+                  android:screenOrientation="sensorPortait"    
       />
       
        <activity
             android:name=".ui.library.Shears"
             android:theme="@style/test" 
-      /> 
+                android:screenOrientation="sensorPortait"/> 
        <activity
             android:name=".ui.library.WebviewActivity"
-      />     
+              android:screenOrientation="sensorPortait"  />     
       <activity android:name="cn.com.karl.reader.BookShelfActivity" 
-               android:theme="@style/test"  />  
-           <activity  android:name=".ui.library.SearchableActivity"> 
+               android:theme="@style/test" 
+                         android:screenOrientation="sensorPortait" />  
+           <activity  android:name=".ui.library.SearchableActivity"
+               
+                         android:screenOrientation="sensorPortait" > 
        <intent-filter>
 	            <action android:name="android.intent.action.SEARCH" />
 	        </intent-filter>
@@ -142,6 +194,7 @@
           </provider>
          <service android:name="org.chinamil.ui.library.Myservice"
              ></service>
+           <service android:name="com.floatview.SCANMyService"></service>
     </application>
 
 </manifest>

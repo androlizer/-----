@@ -7,11 +7,13 @@ import android.accounts.NetworkErrorException;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.AsyncQueryHandler;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
@@ -22,6 +24,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.view.Display;
 import android.view.Gravity;
@@ -45,6 +48,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.floatview.SCANMyService;
 
 import cn.com.karl.reader.BookShelfActivity;
 
@@ -375,10 +380,16 @@ public class RecentActivity extends Activity implements OnClickListener {
 			}
 
 		});
-		thread2.start();
-
+		      thread2.start();
+		/* Intent service = new Intent(RecentActivity.this,
+	                SCANMyService.class);
+	        service.putExtra("show", "show");
+	        startService(service);*/
+		//bindService(service, serviceConnection, Context.BIND_AUTO_CREATE);
+	   
 	}
-
+	
+    
 	// 横向 irem的参数
 	LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
 			LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -713,11 +724,6 @@ public class RecentActivity extends Activity implements OnClickListener {
 	 * File(Environment.getExternalStorageDirectory(), "chinamilpdf"));
 	 */
 
-	protected void onRestart() {
-		super.onRestart();
-
-	}
-
 	public void onClick(View v) {
 		// 打开
 		int c = (Integer) v.getTag();
@@ -1022,6 +1028,8 @@ public class RecentActivity extends Activity implements OnClickListener {
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.mainmenu_settings:
+		    Intent service = new Intent(RecentActivity.this,SCANMyService.class);
+              stopService(service);
 			System.exit(0);
 			return true;
 		case R.id.mainmenu_about:
@@ -1194,6 +1202,10 @@ public class RecentActivity extends Activity implements OnClickListener {
 							// }
 
 						}
+						Intent service = new Intent(RecentActivity.this,SCANMyService.class);
+					  /*service.putExtra("show", "unshow");
+					  startService(service);*/
+						stopService(service);
 						System.exit(0);
 					}
 				})
@@ -1402,5 +1414,22 @@ public class RecentActivity extends Activity implements OnClickListener {
 	 * 
 	 * }
 	 */
-
+	@Override
+	protected void onResume() {
+	    Intent service = new Intent(RecentActivity.this,
+                SCANMyService.class);
+        service.putExtra("show", "show");
+        startService(service);
+	    super.onResume();
+	}
+	
+	@Override
+	protected void onPause() {
+	    Intent service = new Intent(RecentActivity.this,
+                SCANMyService.class);
+        service.putExtra("show", "unshow");
+        startService(service);
+        super.onPause();
+	}
+	
 }

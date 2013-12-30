@@ -5,6 +5,7 @@
    <item name="android:windowFullscreen">true</item>
     <item name="android:windowContentOverlay">@null</item>
        <item name="android:windowNoTitle">true</item>
+  
           <!--  覆盖默认动画 -->
    </style> 
    <style name="testAnimation" parent="@android:style/Animation.Activity">  

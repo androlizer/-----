@@ -144,7 +144,6 @@ OnDrawerOpenListener {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.readeui);
         root = getCacheDir();
         mypDialog=(ProgressBar) findViewById(R.id.progressBar1);
@@ -480,7 +479,7 @@ protected void onRestart() {
                  initialValues.put(Heibai.DATE, date);
                 initialValues.put(Heibai.PATH,  currentIndex);
             	getContentResolver().insert(Heibai.TEMP_URI, initialValues);
-            	myhandler.sendEmptyMessage(2);
+            	    myhandler.sendEmptyMessage(2);
             	Message msg=new Message();
                  msg.what=3;
                  msg.obj=title;
